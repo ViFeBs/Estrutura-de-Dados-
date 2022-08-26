@@ -45,7 +45,27 @@ public class Zoo {
                 System.out.println("Temos mais tipos Aves: " + ave + "no Total.");
             }
         }else if(rep > outro){
-            
+            System.out.println("Temos mais tipos Repiteis: " + rep + "no Total.");
+        }else{
+            System.out.println("Temos mais tipos variados de Animais: " + outro + "no Total");
         }
+    }
+
+    public void calcularTotalKilos(){
+        double sum = 0;
+        for(int i = 0; i < zoo.length; i++){
+            sum += zoo[i].getMassa(); 
+        }
+        System.out.println("Nossos animais todos juntos pesam: " + sum);
+    }
+
+    public void maiorMassa(){
+        Animal bicho = new Animal();
+        bicho.setMassa(zoo[0].getMassa());
+        for(int i = 1; i < zoo.length; i++){
+            if(bicho.getMassa() > zoo[i].getMassa())
+                bicho = zoo[i];
+        }
+        System.out.println("A maior massa é do animal :" + bicho.getNome() + " e seu peso é :" + bicho.getMassa());
     }
 } 
