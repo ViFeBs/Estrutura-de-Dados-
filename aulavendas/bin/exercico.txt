@@ -1,0 +1,45 @@
+Em uma determinada empresa há 4  vendedores. Cada vendedor é identificado por um código.
+Abaixo segue a planilha de vendas de 4 meses de um determinado ano em reais (ficticio)
+
+Vendedor	mes A 		mes B		mes C 		mes D
+12		200.0			1345.00		200.90		3455.5
+14		1000.9			1222.56		222.90		1234.22
+15		200.88			233.78		1111.90		222.67
+16		1234.8			1222.90		1122.00		988.99
+
+Faça um programa em java que :
+
+0- )Mostrar o mapa de vendas da empresa nos 4 meses
+
+1-) Emita um relatório com a venda de cada um dos vendedores de acordo com o layout abaixo:
+	
+	Vendedor	Total Venda
+	12			99999.99
+	14			99999.99
+	15			99999.99
+	16			99999.99
+	
+2-) Qual vendedor que teve o maior valor em vendas nos 4 meses ?
+
+3-) Qual vendedor que teve o menor valor em vendas nos 4 meses ?
+
+4-) Qual foi a média recebida no mes B ?
+
+5-) Baseado no exercicio 1, emita o relatório por nome de vendedor
+
+Vendedor 		Nome
+12				Ricardo Magalhaes
+14				Vivi de Freitas
+15 				Victor Mariano
+16			 	Jose Natan
+
+Venda{
+    metodos
+    -carregarMapaVenda
+        um loop em cada posição introduz um valor random
+    -emitirRelatorioVenda
+    -maiorVenda
+    -menorVenda
+    -mediaVenda
+    -emitirRelatorioVendaVendedor
+}
