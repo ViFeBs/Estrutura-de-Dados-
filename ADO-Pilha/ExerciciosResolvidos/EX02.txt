@@ -1,0 +1,62 @@
+public class App {
+    public static Pilha beco = new Pilha(); 
+    public static void main(String[] args) throws Exception {
+        /*2-) Um estacionamento é composto de um único beco que guarda no máximo 10 carros. 
+        Existe apenas uma entrada/saída no estacionamento, em uma extremidade do beco. 
+        Se chegar um cliente para retirar um carro que não seja o mais próximo da saída, 
+        todos os carros bloqueando seu caminho sairão do estacionamento, 
+        e os outros carros voltarão a ocupar a sequência inicial. 
+        Escreva um programa que processe um grupo de cartões do estacionamento. 
+        O programa deve imprimir uma mensagem sempre que um carro chegar ou sair. 
+        Quando um carro chegar, a mensagem deve especificar se existe ou não vaga para o carro no estacionamento. 
+        Se não houver vaga, o carro partirá sem entrar no estacionamento. 
+        Quando um carro sair do estacionamento, a mensagem deverá incluir o número de vezes em que o carro foi 
+        manobrado para fora e para dentro do estacionamento para permitir que outros carros saíssem. */
+
+
+        //adiconando carros ao estacionamento
+        for(int i = 1; i <= 15;i++){
+            if(beco.tamanho() < 10){
+                System.out.print("A vagas \n");
+                beco.push("Carro"+i);
+                System.out.println("O Carro"+i+" Chegou");
+            }else   
+                System.out.println("Estacionamento lotado");
+        }
+
+        retirarCarro("Carro8");
+        retirarCarro("Carro3");
+        retirarCarro("Carro3");
+        beco.listar();
+    }
+
+    public static void retirarCarro(String carro){
+        Pilha carrosMovidos = new Pilha();
+        boolean carroSaiu = false;
+        String carroMovido = "";
+        int contador = 0;
+
+        while(!carroSaiu){
+            carroMovido = (String)beco.pop(); //tirando o carro do escionamento
+            if (carroMovido.equals(carro)) {
+                carroSaiu = true;  //parando o loop após achar o carro que queria sair
+                break;
+            }
+            carrosMovidos.push(carroMovido); //adicionando o carro movido para a pilha dos carros movidos
+            contador++; //contando quantos carros foram movidos
+            carroMovido = ""; //reseta a variavel para o proximo carro
+            if(beco.tamanho() == 0){
+                System.out.println("Esse carro não está estacionado");
+                break;
+            }
+        }
+
+        //retornando os carros para o beco
+        for(int i = carrosMovidos.tamanho(); i > 0; i--){
+            beco.push(carrosMovidos.pop());
+        }
+        if(carroSaiu)
+            System.out.print("O Carro: " + carroMovido +" Saiu Foi preciso mover " + contador + " vezes, agora temos " + beco.tamanho() + " Vagas Ocupadas \n");
+    }
+
+}
