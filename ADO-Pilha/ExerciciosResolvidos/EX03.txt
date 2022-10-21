@@ -1,0 +1,53 @@
+public class App {
+    public static void main(String[] args) throws Exception {
+        /*3-) Imagine um colecionador de vinhos que compra vinhos recentes e guarda-os em uma adega para envelhecerem,
+         e que a cada ocasião especial abre sempre sua última aquisição (para poupar os mais antigos). Construa um programa que: 
+         a) Permita incluir novos vinhos na adega antigas. As informações básicas que o registro do vinho deve conter são: nome do produto e safra. */
+
+         Pilha adega = new Pilha();
+
+         adega.push(new Vinho("Vinho1","Safra1"));
+         adega.push(new Vinho("Vinho2","Safra2"));
+         adega.push(new Vinho("Vinho3","Safra3"));
+         adega.push(new Vinho("Vinho4","Safra4"));
+         adega.push(new Vinho("Vinho5","Safra5"));
+
+         adega.pop();//retirando sempre o ultimo vinho
+         for(int i = 0; i < adega.tamanho(); i++){
+            System.out.println(((Vinho)adega.pegar(i)).toString());
+         }
+    }
+
+}
+
+---------------------------------Classe Vinho---------------------------------------------------------------------------------------------------------------------
+public class Vinho {
+    private String nome;
+    private String safra;
+
+    public Vinho(){}
+
+    public Vinho(String nome, String safra) {
+        this.nome = nome;
+        this.safra = safra;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getSafra() {
+        return safra;
+    }
+    public void setSafra(String safra) {
+        this.safra = safra;
+    }
+
+    @Override
+    public String toString() {
+        return "Vinho [nome=" + nome + ", safra=" + safra + "]";
+    }    
+
+    
+}
