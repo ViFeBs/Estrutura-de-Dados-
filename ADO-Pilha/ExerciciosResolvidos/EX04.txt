@@ -1,0 +1,36 @@
+public class App {
+    public static void main(String[] args) throws Exception {
+        /*4-) Considere a existência de um tipo PILHA de números de ponto flutuante.
+        Implemente um programa que leia duas pilhas, P1 e P2, e passe todos os elementos da pilha P2 para o topo da pilha P1 sem trocar a ordem
+        e sem ferir o conceito de pilha. A figura a seguir ilustra essa concatenação de pilhas ( vide anexo):
+        prob4.png */
+        
+        Pilha p1 = new Pilha();//pilha principal
+        Pilha p2 = new Pilha();//pilha secundaria
+        Pilha p3 = new Pilha();//pilha auxiliar
+
+        p1.push(2.5);
+        p1.push(7.8);
+        p1.push(5.9);
+
+        p2.push(6.8);
+        p2.push(4.7);
+
+        //move a pilha secundaria para a p3
+        for(int i = p2.tamanho(); i > 0; i--){
+            p3.push(p2.pop());
+        }
+        
+        //move a pilha invertida para a p2
+        for(int i = p3.tamanho(); i > 0; i--){
+            p2.push(p3.pop());
+        }
+        //move os elementos da maneira correta para a p1
+        for(int i = p2.tamanho(); i > 0; i--){
+            p1.push(p2.pop());
+        }
+
+        p1.listar();
+    }
+
+}
